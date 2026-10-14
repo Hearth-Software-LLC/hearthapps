@@ -51,10 +51,10 @@ install) that serves the folder the way Vercel does: clean URLs like `/privacy`,
 
 ## Before launch
 
-- **App Store links.** BigTable links to its App Store page and Hearken to its TestFlight beta.
-  Suffice, Sated and Caloma show a grey "Coming soon to the App Store" badge — search
-  `index.html` for `Coming soon to the` and replace each with a link like BigTable's.
-  When Hearken ships, swap its TestFlight link for the App Store one.
+- **App Store and TestFlight links.** BigTable links to the App Store. Suffice, Sated and Hearken
+  show a blue "Join the beta on TestFlight" button plus a "How to join" link to `/beta`, the
+  page with TestFlight instructions. Caloma shows "Coming soon". When an app's link changes,
+  update it everywhere it appears: search the HTML files for its `testflight.apple.com/join/` link.
 - **Legal review.** The Privacy Policy and Terms were drafted from the apps' code. Have them
   checked, confirm BigTable's AI provider and Sated's Apple Health behaviour, and replace
   `[STATE]` in `terms/index.html` with your governing-law state.
