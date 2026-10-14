@@ -1,0 +1,12 @@
+{
+  "name": "hearthapps",
+  "private": true,
+  "description": "Marketing site for Hearth: BigTable, Suffice, Sated, Caloma and Hearken.",
+  "type": "module",
+  "scripts": {
+    "dev": "node tools/dev-server.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
