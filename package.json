@@ -4,7 +4,14 @@
   "description": "Marketing site for Hearth: BigTable, Suffice, Sated, Caloma and Hearken.",
   "type": "module",
   "scripts": {
-    "dev": "node tools/dev-server.mjs"
+    "dev": "node tools/dev-server.mjs",
+    "icons": "node tools/render-icons.mjs",
+    "test": "node --test tools/*.test.mjs"
+  },
+  "devDependencies": {
+    "lucide-react": "^1.57.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
   },
   "engines": {
     "node": ">=18"

@@ -29,7 +29,23 @@ npm run dev
 
 `npm run dev` runs `tools/dev-server.mjs`, a tiny Node server with no dependencies (nothing to
 install) that serves the folder the way Vercel does: clean URLs like `/privacy`, and the custom
-404 page. `package.json` and `tools/` are listed in `.vercelignore`, so they never deploy.
+404 page. Development tools, package manifests and `node_modules/` are excluded from deployment.
+
+## UI icons and tests
+
+UI icons come from `lucide-react`, rendered into the checked-in HTML with React's static
+renderer. React and Lucide are development-only dependencies: no runtime bundle, CDN, or
+deployment build is needed, and icons remain visible without JavaScript.
+
+```sh
+npm ci
+npm run icons        # regenerate SVGs after changing a data-lucide icon name
+npm test            # theme behavior and static-icon consistency
+```
+
+Use the PascalCase Lucide component name in an SVG's `data-lucide` attribute, for example
+`data-lucide="Sun"`. The renderer preserves its width, height and custom CSS classes.
+The Hearth mark and app artwork are brand assets, not Lucide UI icons.
 
 ## Deploy (Vercel)
 
@@ -64,13 +80,15 @@ install) that serves the folder the way Vercel does: clean URLs like `/privacy`,
 ## Editing notes
 
 - Brand colors live at the top of `assets/css/site.css` (`--bigtable`, `--suffice`, …).
-- The nav and footer are repeated in each page — change all five HTML files when you edit them.
+- The nav and footer are repeated in each page — change all six HTML files when you edit them.
 - Each page has its own `<title>`, description, canonical URL and Open Graph tags in `<head>`.
   The home page also carries Organization, WebSite and SoftwareApplication structured data;
   the support page carries FAQPage structured data that mirrors its FAQ — update both together.
 - **Light and dark.** The sun/moon switch in the nav changes appearance and remembers the choice;
   until someone picks, the site follows their device setting. Dark colors are the `:root[data-theme="dark"]`
   block at the top of `site.css`, and each app icon has a `-dark` WebP from `~/Developer/app-icons`.
+  The new appearance reveals in a circle from the switch over 650 ms. With Reduce Motion
+  enabled, or without View Transition API support, appearance changes immediately.
 - Animations respect **Reduce Motion**. Scroll reveals use CSS scroll-driven animations where
   the browser supports them and an IntersectionObserver fallback elsewhere; with JavaScript off,
   everything is simply visible.
