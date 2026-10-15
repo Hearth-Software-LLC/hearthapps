@@ -35,7 +35,7 @@
   function applyTheme(t) {
     doc.setAttribute('data-theme', t);
     document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.setAttribute('content', t === 'dark' ? '#000000' : '#FBFBFD'); });
-    if (themeBtn) themeBtn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    if (themeBtn) themeBtn.setAttribute('aria-checked', t === 'dark' ? 'true' : 'false');
   }
   applyTheme(doc.getAttribute('data-theme') || (mq && mq.matches ? 'dark' : 'light'));
   if (mq && mq.addEventListener) {

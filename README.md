@@ -68,7 +68,7 @@ install) that serves the folder the way Vercel does: clean URLs like `/privacy`,
 - Each page has its own `<title>`, description, canonical URL and Open Graph tags in `<head>`.
   The home page also carries Organization, WebSite and SoftwareApplication structured data;
   the support page carries FAQPage structured data that mirrors its FAQ — update both together.
-- **Light and dark.** The sun/moon button in the nav switches appearance and remembers the choice;
+- **Light and dark.** The sun/moon switch in the nav changes appearance and remembers the choice;
   until someone picks, the site follows their device setting. Dark colors are the `:root[data-theme="dark"]`
   block at the top of `site.css`, and each app icon has a `-dark` WebP from `~/Developer/app-icons`.
 - Animations respect **Reduce Motion**. Scroll reveals use CSS scroll-driven animations where
