@@ -71,9 +71,10 @@ The Hearth mark and app artwork are brand assets, not Lucide UI icons.
   show a blue "Join the beta on TestFlight" button plus a "How to join" link to `/beta`, the
   page with TestFlight instructions. Caloma shows "Coming soon". When an app's link changes,
   update it everywhere it appears: search the HTML files for its `testflight.apple.com/join/` link.
-- **Legal review.** The Privacy Policy and Terms were drafted from the apps' code. Have them
-  checked, confirm BigTable's AI provider and Sated's Apple Health behaviour, and replace
-  `[STATE]` in `terms/index.html` with your governing-law state.
+- **Legal review.** The Privacy Policy, Terms and Support FAQ were checked against every app's
+  code, hearth-api and HearthKit on October 19, 2026 (provider Hearth Software LLC, Utah law).
+  Have a lawyer review them, and re-check them whenever an app adds a server feature, a third
+  party or a permission.
 - **Search.** After the domain is live, add it to Google Search Console and Bing Webmaster
   Tools and submit `https://hearthapps.com/sitemap.xml`.
 
