@@ -1,12 +1,12 @@
 # hearthapps.com
 
-The marketing site for **Hearth** — BigTable, Suffice, Sated, Caloma and Hearken.
+The marketing site for **Hearth** — BigTable, Suffice, Sated, Caloma, Hearken, Trove and Ember.
 
 Plain HTML, one stylesheet and one small script. No framework and no build step:
 what's in this folder is exactly what gets served.
 
 ```
-index.html            Home: hero, the five apps, principles
+index.html            Home: hero, the seven apps, principles
 support/index.html    Support + FAQ
 privacy/index.html    Privacy Policy (one policy for all five apps)
 terms/index.html      Terms of Use (one set of terms for all five apps)
@@ -64,12 +64,17 @@ The Hearth mark and app artwork are brand assets, not Lucide UI icons.
 | Sated | https://hearthapps.com/support | https://hearthapps.com/privacy#sated | https://hearthapps.com/#sated |
 | Caloma | https://hearthapps.com/support | https://hearthapps.com/privacy#caloma | https://hearthapps.com/#caloma |
 | Hearken | https://hearthapps.com/support | https://hearthapps.com/privacy#hearken | https://hearthapps.com/#hearken |
+| Trove | https://hearthapps.com/support | https://hearthapps.com/privacy (no Trove section yet) | https://hearthapps.com/#trove |
+| Ember | https://hearthapps.com/support | https://hearthapps.com/privacy (no Ember section yet) | https://hearthapps.com/#ember |
 
 ## Before launch
 
-- **App Store and TestFlight links.** BigTable links to the App Store. Suffice, Sated and Hearken
-  show a blue "Join the beta on TestFlight" button plus a "How to join" link to `/beta`, the
-  page with TestFlight instructions. Caloma shows "Coming soon". When an app's link changes,
+- **App Store and TestFlight links.** BigTable links to the App Store. Suffice, Sated, Caloma,
+  Hearken, Trove and Ember show a blue "Join the beta on TestFlight" button (most with a "How to
+  join" link to `/beta`, the page with TestFlight instructions).
+- **Trove and Ember screens.** Their phones show HTML mocks (`.trove-mock`, `.ember-mock` in
+  site.css) until they have screenshot scripts; then add them to `tools/capture-screenshots.sh`
+  and swap in `<img class="shot">` like the others. When an app's link changes,
   update it everywhere it appears: search the HTML files for its `testflight.apple.com/join/` link.
 - **Legal review.** The Privacy Policy, Terms and Support FAQ were checked against every app's
   code, hearth-api and HearthKit on October 19, 2026 (provider Hearth Software LLC, Utah law).

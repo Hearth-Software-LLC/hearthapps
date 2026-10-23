@@ -159,6 +159,6 @@ test('every non-brand SVG is an accessible static Lucide icon on every page', as
     assert.equal((html.match(/data-lucide="Menu"/g) || []).length, 1, page);
     assert.equal((html.match(/data-lucide="X"/g) || []).length, 1, page);
   }
-  assert.equal(count, 78);
+  assert.equal(count, 94);
   execFileSync(process.execPath, [new URL('./render-icons.mjs', import.meta.url).pathname, '--check']);
 });
