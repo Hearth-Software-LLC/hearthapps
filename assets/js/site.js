@@ -57,6 +57,44 @@
     });
   }
 
+  // Product pages: device tabs. Without this script every panel shows, stacked.
+  document.querySelectorAll('[data-tabs]').forEach(function (list) {
+    var tabs = Array.prototype.slice.call(list.querySelectorAll('[role="tab"]'));
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute('aria-controls'));
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    list.hidden = false;
+    select(tabs[0], false);
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t, false); });
+      t.addEventListener('keydown', function (ev) {
+        var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
+        if (d) { ev.preventDefault(); select(tabs[(i + d + tabs.length) % tabs.length], true); }
+      });
+    });
+  });
+
+  // Product pages: monthly / yearly prices.
+  document.querySelectorAll('[data-billing]').forEach(function (group) {
+    var root = group.closest('section') || document;
+    group.hidden = false;
+    group.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var yearly = b.getAttribute('data-period') === 'yearly';
+        group.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        root.querySelectorAll('[data-monthly]').forEach(function (el) { el.hidden = yearly; });
+        root.querySelectorAll('[data-yearly]').forEach(function (el) { el.hidden = !yearly; });
+      });
+    });
+  });
+
   if (!('IntersectionObserver' in window)) return;
 
   // Scroll reveals: fall back to IntersectionObserver where CSS scroll-driven

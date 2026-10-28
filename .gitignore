@@ -3,3 +3,5 @@
 node_modules
 _to_delete
 tools/screenshots.log
+.render-review/
+tools/__pycache__/

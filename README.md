@@ -19,6 +19,21 @@ favicon.svg, favicon-32.png, apple-touch-icon.png, icon-192.png, icon-512.png, s
 robots.txt, sitemap.xml, vercel.json
 ```
 
+## App pages
+
+Each app has a product page at `/<app>` (BigTable, Suffice, Sated, Caloma, Hearken, Trove), built
+from one template so they stay consistent:
+
+```sh
+python3 tools/export-renders.py      # device renders from each app repo's marketing/mockups → assets/img/renders
+python3 tools/build-app-pages.py     # writes <app>/index.html from tools/app_pages_data.py
+npm run icons && npm test
+```
+
+Edit copy and screens in `tools/app_pages_data.py`, never the generated HTML. The nav and footer
+are copied from `index.html`, so change them there first. Plan prices are marked DRAFT until
+they're confirmed against MONETIZATION.md.
+
 ## Preview locally
 
 ```sh

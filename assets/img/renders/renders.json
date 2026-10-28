@@ -1,0 +1,506 @@
+{
+ "bigtable/duo-flat-cook": {
+  "h": 561,
+  "source": "bigtable-ios/marketing/mockups/iPhone-Duo-01/dark-landscape/08-cook.png",
+  "w": 800,
+  "widths": [
+   800,
+   1600
+  ]
+ },
+ "bigtable/duo-plan": {
+  "h": 950,
+  "source": "bigtable-ios/marketing/mockups/iPhone-Duo-02/dark/01-plan.png",
+  "w": 520,
+  "widths": [
+   520,
+   1040
+  ]
+ },
+ "bigtable/ipad-a-recipes": {
+  "h": 1066,
+  "source": "bigtable-ios/marketing/mockups/iPad-Pro-12-9-01/dark/02-recipes.png",
+  "w": 600,
+  "widths": [
+   600,
+   1200
+  ]
+ },
+ "bigtable/ipad-b-plan": {
+  "h": 961,
+  "source": "bigtable-ios/marketing/mockups/iPad-Pro-12-9-02/dark/01-plan.png",
+  "w": 720,
+  "widths": [
+   720,
+   1440
+  ]
+ },
+ "bigtable/phone-a-community": {
+  "h": 809,
+  "source": "bigtable-ios/marketing/mockups/iPhone-18-Pro-01/dark/07-community.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "bigtable/phone-a-cook": {
+  "h": 809,
+  "source": "bigtable-ios/marketing/mockups/iPhone-18-Pro-01/dark/08-cook.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "bigtable/phone-a-plan": {
+  "h": 809,
+  "source": "bigtable-ios/marketing/mockups/iPhone-18-Pro-01/dark/01-plan.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "bigtable/phone-a-recipe": {
+  "h": 809,
+  "source": "bigtable-ios/marketing/mockups/iPhone-18-Pro-01/dark/03-recipe.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "bigtable/phone-b-grocery": {
+  "h": 955,
+  "source": "bigtable-ios/marketing/mockups/iPhone-18-Pro-02/dark/04-grocery.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "bigtable/phone-b-recipes": {
+  "h": 955,
+  "source": "bigtable-ios/marketing/mockups/iPhone-18-Pro-02/dark/02-recipes.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "bigtable/phone-tilt-plan": {
+  "h": 606,
+  "source": "bigtable-ios/marketing/mockups/iPhone-18-Pro-03/dark/01-plan.png",
+  "w": 520,
+  "widths": [
+   520,
+   1040
+  ]
+ },
+ "caloma/duo-flat-chores": {
+  "h": 561,
+  "source": "caloma/marketing/mockups/iPhone-Duo-01/dark-landscape/02-chores.png",
+  "w": 800,
+  "widths": [
+   800,
+   1600
+  ]
+ },
+ "caloma/ipad-a-home": {
+  "h": 1066,
+  "source": "caloma/marketing/mockups/iPad-Pro-12-9-01/dark/01-home.png",
+  "w": 600,
+  "widths": [
+   600,
+   1200
+  ]
+ },
+ "caloma/ipad-a-kidview": {
+  "h": 1066,
+  "source": "caloma/marketing/mockups/iPad-Pro-12-9-01/dark/10-kidview.png",
+  "w": 600,
+  "widths": [
+   600,
+   1200
+  ]
+ },
+ "caloma/ipad-b-home": {
+  "h": 961,
+  "source": "caloma/marketing/mockups/iPad-Pro-12-9-02/dark/01-home.png",
+  "w": 720,
+  "widths": [
+   720,
+   1440
+  ]
+ },
+ "caloma/phone-a-chores": {
+  "h": 809,
+  "source": "caloma/marketing/mockups/iPhone-18-Pro-01/dark/02-chores.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "caloma/phone-a-homecare": {
+  "h": 809,
+  "source": "caloma/marketing/mockups/iPhone-18-Pro-01/dark/08-homecare.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "caloma/phone-a-kid": {
+  "h": 809,
+  "source": "caloma/marketing/mockups/iPhone-18-Pro-01/dark/04-kid.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "caloma/phone-b-calendar": {
+  "h": 955,
+  "source": "caloma/marketing/mockups/iPhone-18-Pro-02/dark/05-calendar.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "caloma/phone-b-home": {
+  "h": 955,
+  "source": "caloma/marketing/mockups/iPhone-18-Pro-02/dark/01-home.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "caloma/phone-b-rewards": {
+  "h": 955,
+  "source": "caloma/marketing/mockups/iPhone-18-Pro-02/dark/07-rewards.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "hearken/ipad-a-mapquest": {
+  "h": 1066,
+  "source": "hearken/marketing/mockups/iPad-Pro-12-9-01/dark/09-mapquest.png",
+  "w": 600,
+  "widths": [
+   600,
+   1200
+  ]
+ },
+ "hearken/ipad-b-reader": {
+  "h": 961,
+  "source": "hearken/marketing/mockups/iPad-Pro-12-9-02/dark/02-reader.png",
+  "w": 720,
+  "widths": [
+   720,
+   1440
+  ]
+ },
+ "hearken/phone-a-listen": {
+  "h": 809,
+  "source": "hearken/marketing/mockups/iPhone-18-Pro-01/dark/03-listen.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "hearken/phone-a-path": {
+  "h": 809,
+  "source": "hearken/marketing/mockups/iPhone-18-Pro-01/dark/06-path.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "hearken/phone-a-plans": {
+  "h": 809,
+  "source": "hearken/marketing/mockups/iPhone-18-Pro-01/dark/12-plans.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "hearken/phone-a-reader": {
+  "h": 809,
+  "source": "hearken/marketing/mockups/iPhone-18-Pro-01/dark/02-reader.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "hearken/phone-b-quiz": {
+  "h": 955,
+  "source": "hearken/marketing/mockups/iPhone-18-Pro-02/dark/08-quiz.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "hearken/phone-b-reader": {
+  "h": 955,
+  "source": "hearken/marketing/mockups/iPhone-18-Pro-02/dark/02-reader.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "sated/duo-flat-today": {
+  "h": 561,
+  "source": "sated/marketing/mockups/iPhone-Duo-01/dark-landscape/01-today.png",
+  "w": 800,
+  "widths": [
+   800,
+   1600
+  ]
+ },
+ "sated/duo-today": {
+  "h": 950,
+  "source": "sated/marketing/mockups/iPhone-Duo-02/dark/01-today.png",
+  "w": 520,
+  "widths": [
+   520,
+   1040
+  ]
+ },
+ "sated/ipad-a-coach": {
+  "h": 1066,
+  "source": "sated/marketing/mockups/iPad-Pro-12-9-01/dark/06-coach.png",
+  "w": 600,
+  "widths": [
+   600,
+   1200
+  ]
+ },
+ "sated/ipad-b-trends": {
+  "h": 961,
+  "source": "sated/marketing/mockups/iPad-Pro-12-9-02/dark/03-trends.png",
+  "w": 720,
+  "widths": [
+   720,
+   1440
+  ]
+ },
+ "sated/phone-a-coach": {
+  "h": 809,
+  "source": "sated/marketing/mockups/iPhone-18-Pro-01/dark/06-coach.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "sated/phone-a-today": {
+  "h": 809,
+  "source": "sated/marketing/mockups/iPhone-18-Pro-01/dark/01-today.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "sated/phone-a-trends": {
+  "h": 809,
+  "source": "sated/marketing/mockups/iPhone-18-Pro-01/dark/03-trends.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "sated/phone-b-add": {
+  "h": 955,
+  "source": "sated/marketing/mockups/iPhone-18-Pro-02/dark/07-add.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "sated/phone-b-meal": {
+  "h": 955,
+  "source": "sated/marketing/mockups/iPhone-18-Pro-02/dark/02-meal.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "suffice/ipad-a-bills": {
+  "h": 1066,
+  "source": "suffice/marketing/mockups/iPad-Pro-12-9-01/dark/06-bills.png",
+  "w": 600,
+  "widths": [
+   600,
+   1200
+  ]
+ },
+ "suffice/ipad-b-overview": {
+  "h": 961,
+  "source": "suffice/marketing/mockups/iPad-Pro-12-9-02/dark/01-overview.png",
+  "w": 720,
+  "widths": [
+   720,
+   1440
+  ]
+ },
+ "suffice/phone-a-activity": {
+  "h": 809,
+  "source": "suffice/marketing/mockups/iPhone-18-Pro-01/dark/04-activity.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "suffice/phone-a-ask": {
+  "h": 809,
+  "source": "suffice/marketing/mockups/iPhone-18-Pro-01/dark/07-ask.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "suffice/phone-a-transaction": {
+  "h": 809,
+  "source": "suffice/marketing/mockups/iPhone-18-Pro-01/dark/05-transaction.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "suffice/phone-b-bills": {
+  "h": 955,
+  "source": "suffice/marketing/mockups/iPhone-18-Pro-02/dark/06-bills.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "suffice/phone-b-budget": {
+  "h": 955,
+  "source": "suffice/marketing/mockups/iPhone-18-Pro-02/dark/02-budget.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "trove/duo-flat-document": {
+  "h": 561,
+  "source": "trove/marketing/mockups/iPhone-Duo-01/dark-landscape/03-document.png",
+  "w": 800,
+  "widths": [
+   800,
+   1600
+  ]
+ },
+ "trove/ipad-a-people": {
+  "h": 1066,
+  "source": "trove/marketing/mockups/iPad-Pro-12-9-01/dark/04-people.png",
+  "w": 600,
+  "widths": [
+   600,
+   1200
+  ]
+ },
+ "trove/ipad-b-document": {
+  "h": 961,
+  "source": "trove/marketing/mockups/iPad-Pro-12-9-02/dark-landscape/03-document.png",
+  "w": 720,
+  "widths": [
+   720,
+   1440
+  ]
+ },
+ "trove/ipad-b-home": {
+  "h": 961,
+  "source": "trove/marketing/mockups/iPad-Pro-12-9-02/dark/01-home.png",
+  "w": 720,
+  "widths": [
+   720,
+   1440
+  ]
+ },
+ "trove/phone-a-document": {
+  "h": 809,
+  "source": "trove/marketing/mockups/iPhone-18-Pro-01/dark/03-document.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "trove/phone-a-home": {
+  "h": 809,
+  "source": "trove/marketing/mockups/iPhone-18-Pro-01/dark/01-home.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "trove/phone-a-people": {
+  "h": 809,
+  "source": "trove/marketing/mockups/iPhone-18-Pro-01/dark/04-people.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "trove/phone-b-add": {
+  "h": 955,
+  "source": "trove/marketing/mockups/iPhone-18-Pro-02/dark/11-add.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "trove/phone-b-assets": {
+  "h": 955,
+  "source": "trove/marketing/mockups/iPhone-18-Pro-02/dark/06-assets.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "trove/phone-b-document": {
+  "h": 955,
+  "source": "trove/marketing/mockups/iPhone-18-Pro-02/dark/03-document.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ },
+ "trove/phone-b-home": {
+  "h": 955,
+  "source": "trove/marketing/mockups/iPhone-18-Pro-02/dark/01-home.png",
+  "w": 360,
+  "widths": [
+   360,
+   720
+  ]
+ }
+}

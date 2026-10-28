@@ -3,7 +3,7 @@ import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import * as icons from 'lucide-react';
 
-const pages = ['index.html', '404.html', 'beta/index.html', 'privacy/index.html', 'support/index.html', 'terms/index.html'];
+const pages = ['index.html', '404.html', 'beta/index.html', 'privacy/index.html', 'support/index.html', 'terms/index.html', 'bigtable/index.html', 'suffice/index.html', 'sated/index.html', 'caloma/index.html', 'hearken/index.html', 'trove/index.html'];
 const check = process.argv.includes('--check');
 
 for (const page of pages) {
