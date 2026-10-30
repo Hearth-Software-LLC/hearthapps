@@ -43,7 +43,7 @@ def ticks(items):
 def get_button(a, cls='store', label=True):
     if a['store']:
         return f'<a class="{cls}" href="{a["store"]}" rel="noopener"><span><small>Download on the</small>App Store</span></a>'
-    return f'<a class="{cls} beta" href="{a["beta"]}" rel="noopener"><span><small>Join the beta on</small>TestFlight</span></a>'
+    return f'<a class="{cls} beta" href="{a["beta"]}" rel="noopener"><img class="store-icon" src="/assets/img/testflight-app-icon.webp" width="32" height="32" alt="" decoding="async"><span><small>Join the beta on</small>TestFlight</span></a>'
 
 def chrome():
     home = open(os.path.join(ROOT, 'index.html')).read()

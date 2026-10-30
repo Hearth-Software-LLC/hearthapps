@@ -196,7 +196,8 @@ h1, h2, h3, h4, p { margin: 0; }
 .store:hover { color: #fff; transform: translateY(-2px); }
 .store small { display: block; font-size: 10px; font-weight: 500; opacity: .8; letter-spacing: .02em; }
 .store span { line-height: 1.15; }
-.store.beta { background: linear-gradient(180deg, #2E9BFF, #0A6CF0); box-shadow: none; }
+.store.beta { background: linear-gradient(180deg, #2E9BFF, #0A6CF0); box-shadow: none; padding-left: 12px; text-align: left; }
+.store-icon { flex: none; width: 32px; height: 32px; }
 .store.beta:hover { color: #fff; box-shadow: 0 12px 26px -10px rgba(10, 108, 240, .6); }
 .store.soon { background: var(--soon-bg); color: var(--ink-2); box-shadow: none; cursor: default; }
 .store.soon:hover { transform: none; color: var(--ink-2); }
