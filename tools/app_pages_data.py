@@ -258,3 +258,24 @@ APPS['trove'] = dict(
          ('Does Trove replace the originals?', 'No. It keeps a scan and tells you where the original is, so you can find it when you need it.')],
     close=('Every important paper.', 'Found in seconds.'),
 )
+
+# ---------- Beta pages (tools/build-beta-pages.py) ----------
+# /beta/<app> for every app in public beta on TestFlight, in this order. Apps with a product
+# page reuse its kind, h1, lede, hero and glance from APPS above. Ember has no product page
+# yet, so its copy comes from the Ember section of index.html.
+BETA_ORDER = ['suffice', 'sated', 'caloma', 'hearken', 'trove', 'ember']
+
+BETA_EXTRA = dict(
+    ember=dict(
+        name='Ember', kind='The voice of the Hearth apps', halo='#FFB27A', strong='#B8470F',
+        title='Ember — Just ask. Your apps answer.',
+        description='Ask what’s for dinner, what’s left in the grocery budget, or what tonight’s reading is. Ember answers out loud from your own Hearth apps, on iPhone and Apple Watch.',
+        h1='Just ask. Your apps answer.',
+        lede='Ask what’s for dinner, what’s left in the grocery budget, or what tonight’s reading is. Ember answers out loud from your own Hearth apps, on iPhone and Apple Watch — and it thinks on your device first.',
+        beta='https://testflight.apple.com/join/SNAUPBnr',
+        glance=[('Mic', 'Voice first', 'Tap and talk, or ask through Siri and the Action button. Answers are spoken a sentence at a time, and you can cut in.'),
+                ('Layers', 'Knows your Hearth apps', 'This week’s meals from BigTable, the grocery budget in Suffice, allowances in Caloma and today’s reading in Hearken.'),
+                ('ShieldCheck', 'Private by design', 'It answers on your iPhone when it can. Cloud help is your choice, and who you are is stripped out before anything leaves.'),
+                ('Watch', 'On your wrist', 'Ask from Apple Watch, even when your iPhone isn’t nearby, over Wi-Fi or cellular.')],
+    ),
+)

@@ -13,6 +13,7 @@ terms/index.html      Terms of Use (one set of terms for all five apps)
 404.html              Not-found page
 assets/css/site.css   All styles (Apple-style type, layout, animations, breakpoints)
 assets/js/site.js     Mobile menu, scroll-reveal fallback, legal-page TOC highlight
+assets/js/beta.js     Beta pages: waitlist form, What's new, ?via= on TestFlight links
 assets/img/           App icons (256 px and @2x 512 px WebP) and the social image (og.png)
 assets/brand/         The Hearth mark as SVG
 favicon.svg, favicon-32.png, apple-touch-icon.png, icon-192.png, icon-512.png, site.webmanifest
@@ -27,12 +28,26 @@ from one template so they stay consistent:
 ```sh
 python3 tools/export-renders.py      # device renders from each app repo's marketing/mockups → assets/img/renders
 python3 tools/build-app-pages.py     # writes <app>/index.html from tools/app_pages_data.py
+python3 tools/build-beta-pages.py    # writes beta/<app>, beta/thanks, beta/confirmed and the /beta form
 npm run icons && npm test
 ```
 
 Edit copy and screens in `tools/app_pages_data.py`, never the generated HTML. The nav and footer
 are copied from `index.html`, so change them there first. Plan prices are marked DRAFT until
 they're confirmed against MONETIZATION.md.
+
+## Beta pages and the launch waitlist
+
+`/beta/<app>` (Suffice, Sated, Caloma, Hearken, Trove, Ember) are built by `tools/build-beta-pages.py`
+from the same data (`BETA_ORDER` and `BETA_EXTRA` for Ember). They talk to hearth-api:
+
+- "What's new this week" loads from `GET https://api.hearthapps.com/v1/beta/<app>` and stays hidden
+  when it's empty or the request fails.
+- "Join the beta on TestFlight" links to `https://hearthapps.com/go/tf/<app>` (plus `?via=` when the page
+  was opened with one), which counts the tap and redirects. `vercel.json` rewrites `/go/*` to the API.
+- The "Get notified at launch" form (on `/beta`, each beta page and each beta app's product page) posts
+  to `https://api.hearthapps.com/v1/waitlist`: as JSON from `assets/js/beta.js`, or as a normal form post
+  without JavaScript, which redirects to `/beta/thanks`. The confirmation email links to `/beta/confirmed`.
 
 ## Preview locally
 
@@ -44,7 +59,7 @@ npm run dev
 
 `npm run dev` runs `tools/dev-server.mjs`, a tiny Node server with no dependencies (nothing to
 install) that serves the folder the way Vercel does: clean URLs like `/privacy`, and the custom
-404 page. Development tools, package manifests and `node_modules/` are excluded from deployment.
+404 page. `/go/*` redirects to api.hearthapps.com (on Vercel it's a rewrite). Development tools, package manifests and `node_modules/` are excluded from deployment.
 
 ## UI icons and tests
 
