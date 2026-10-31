@@ -774,3 +774,67 @@ a.bt:hover { color: var(--ink); transform: translateY(-6px); box-shadow: 0 30px 
 }
 .product .together { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
 .product .close .grad { background: none; animation: none; color: var(--accent-ink); }
+
+/* ---------- Beta pages and the launch waitlist (tools/build-beta-pages.py, assets/js/beta.js) ---------- */
+.beta-page .p-hero .btn-ghost { min-height: 48px; padding: 0 20px; border-radius: 14px; font-size: 15px; font-weight: 600; color: #fff; box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .75); }
+.beta-page .p-hero .btn-ghost:hover { color: #fff; background: rgba(255, 255, 255, .14); }
+.beta-page .p-hero .price-note { display: block; margin-top: 14px; color: rgba(255, 255, 255, .86); font-size: 14px; }
+.beta-stage { margin-top: 48px; }
+.beta-h2 { font-size: clamp(30px, 3.6vw, 44px); letter-spacing: -.035em; line-height: 1.08; font-weight: 700; margin-top: 72px; }
+.beta-page .glance { margin-top: 28px; }
+.beta-more { margin-top: 22px; font-size: 17px; }
+.beta-card-link { color: inherit; text-decoration: none; }
+.beta-card-link:hover { color: var(--link); text-decoration: underline; }
+.beta-card-more { font-size: 15px; font-weight: 500; text-decoration: none; margin: -2px 0 10px; }
+.beta-card-more:hover { text-decoration: underline; }
+.beta-card .beta-card-more + .store { margin-top: auto; }
+.beta-help { margin: 64px auto 120px; max-width: 40em; text-align: center; font-size: 16px; line-height: 1.55; color: var(--muted); }
+.beta-page .disclaimer { text-align: center; margin: -96px auto 120px; max-width: 40em; }
+.wn { background: var(--card); border-radius: 28px; padding: 36px 40px; box-shadow: 0 1px 2px rgba(0, 0, 0, .04); }
+.wn h2 { font-size: clamp(26px, 3vw, 34px); letter-spacing: -.03em; line-height: 1.1; }
+.wn ul { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.wn li { position: relative; padding-left: 22px; font-size: 17px; line-height: 1.45; color: var(--ink-2); overflow-wrap: anywhere; }
+.wn li::before { content: ""; position: absolute; left: 3px; top: .55em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-ink, var(--link)); }
+.wn-date { margin-top: 18px; font-size: 14px; color: var(--muted); }
+.notify-sec { padding-top: 56px; }
+
+.wl-card { background: var(--card); border-radius: 32px; padding: 48px 56px; box-shadow: 0 1px 2px rgba(0, 0, 0, .04); display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 28px 56px; align-items: start; }
+.wl-copy h2 { font-size: clamp(28px, 3.2vw, 40px); letter-spacing: -.035em; line-height: 1.1; }
+.wl-sub { font-size: 17px; line-height: 1.5; color: var(--muted); margin-top: 12px; }
+.wl { position: relative; min-width: 0; }
+.wl-apps { border: 0; margin: 0 0 22px; padding: 0; min-width: 0; }
+.wl-apps legend, .wl-label { display: block; padding: 0; font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+.wl-app-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr)); gap: 8px; }
+.wl-app { display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 8px 12px; border-radius: 14px; background: var(--panel); box-shadow: inset 0 0 0 1px var(--hair); font-size: 15px; font-weight: 600; cursor: pointer; transition: box-shadow .2s; }
+.wl-app:has(input:checked) { box-shadow: inset 0 0 0 2px #0A6CF0; }
+.wl-app:has(input:focus-visible) { outline: 3px solid #0071E3; outline-offset: 2px; }
+.wl-app input { flex: none; width: 18px; height: 18px; margin: 0; accent-color: #0A6CF0; }
+.wl-app img { flex: none; width: 28px; height: 28px; border-radius: 7px; }
+.wl-inline { display: flex; gap: 10px; flex-wrap: wrap; }
+.wl-input { flex: 1 1 220px; min-width: 0; min-height: 50px; padding: 0 16px; border-radius: 14px; border: 1px solid var(--rule); background: var(--ground); color: var(--ink); font: inherit; font-size: 17px; }
+.wl-input:focus-visible { outline: 3px solid #0071E3; outline-offset: 1px; border-radius: 14px; }
+.wl-input[aria-invalid="true"] { border-color: var(--neg); }
+.wl-btn { flex: none; min-height: 50px; padding: 0 24px; border: 0; border-radius: 14px; background: var(--ink); color: var(--ground); font: inherit; font-size: 17px; font-weight: 600; cursor: pointer; transition: transform .35s var(--ease), background .2s; }
+.wl-btn:hover { background: var(--ink-strong); transform: translateY(-2px); }
+.wl-btn[disabled] { opacity: .6; cursor: progress; transform: none; }
+.wl-note { margin-top: 14px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+.wl-hp { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+.wl-fields[hidden] { display: none; }
+.wl-status { margin-top: 14px; padding: 14px 16px; border-radius: 14px; font-size: 16px; line-height: 1.45; }
+.wl-status:empty { display: none; }
+.wl-status.err { background: var(--neg-bg); color: var(--neg); }
+.wl-status.ok { margin-top: 0; background: var(--pos-bg); color: var(--pos); font-size: 17px; font-weight: 600; }
+.beta-status { min-height: 52vh; display: flex; align-items: center; justify-content: center; }
+.beta-status .h1 { max-width: 16ch; }
+.bs-block[hidden] { display: none; }
+@media (max-width: 860px) {
+  .wl-card { grid-template-columns: minmax(0, 1fr); padding: 36px; }
+  .beta-h2 { margin-top: 56px; }
+}
+@media (max-width: 560px) {
+  .wl-card, .wn { padding: 28px 22px; border-radius: 26px; }
+  .wl-app-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .wl-btn { flex: 1 1 100%; }
+  .beta-help { margin: 48px auto 88px; }
+  .beta-page .disclaimer { margin: -64px auto 88px; }
+}

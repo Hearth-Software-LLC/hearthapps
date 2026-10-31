@@ -22,6 +22,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/css/site.css">
 <script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/beta.js" defer></script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Sated", "operatingSystem": "iOS 26, iPadOS 26", "applicationCategory": "LifestyleApplication", "description": "Sated tracks calories, protein, carbs, fat and fiber with a 13,000-food library that works offline, a barcode scanner, a nutrition-label reader and a private coach on your iPhone.", "url": "https://hearthapps.com/sated", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Hearth Software LLC", "url": "https://hearthapps.com/"}}</script>
 </head>
 <body>
@@ -175,6 +176,24 @@
   </div>
 </section>
 
+<section id="notify" class="wrap notify-sec" aria-labelledby="wl-title">
+  <div class="wl-card reveal">
+    <div class="wl-copy"><h2 id="wl-title">Get notified when Sated launches.</h2><p class="wl-sub">Rather wait for the App Store? Leave your email and we’ll tell you when Sated is out. Or <a href="/beta/sated">see what’s new in the beta</a>.</p></div>
+    <form class="wl" action="https://api.hearthapps.com/v1/waitlist" method="post" data-waitlist aria-labelledby="wl-title">
+      <div class="wl-fields">
+        <input type="hidden" name="apps" value="sated">
+        <label class="wl-label" for="wl-email">Email</label>
+        <div class="wl-inline"><input class="wl-input" id="wl-email" type="email" name="email" autocomplete="email" autocapitalize="off" spellcheck="false" required><button class="wl-btn" type="submit">Notify me</button></div>
+        <div class="wl-hp" aria-hidden="true"><label for="wl-company">Company</label><input id="wl-company" type="text" name="company" value="" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="via" value="">
+        <input type="hidden" name="page" value="/sated">
+        <p class="wl-note">We’ll email you once to confirm, and once when it launches. Nothing else. <a href="/privacy#waitlist">Privacy</a></p>
+      </div>
+      <p class="wl-status" role="status" aria-live="polite" tabindex="-1"></p>
+    </form>
+  </div>
+</section>
+
 <section class="close" aria-labelledby="cl-title">
   <div class="wrap">
     <h2 id="cl-title" class="h2 reveal">Know what you ate.<br><span class="grad">Not just guess.</span></h2>
@@ -190,7 +209,7 @@
     <div class="foot-brand"><svg class="mark" width="24" height="24" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="hm-foot" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFC94A"/><stop offset="1" stop-color="#F57C07"/></linearGradient></defs><g transform="matrix(1.13 0 0 1 -4.16 0)"><g transform="rotate(-40 32 52)"><path class="petal" d="M30.75 30.1Q32 27.65 33.25 30.1C41.8 41.92 38.27 52 32 52C25.73 52 22.2 41.92 30.75 30.1Z" fill="#1E9E6A" fill-opacity=".82"/></g><g transform="rotate(40 32 52)"><path class="petal petal-2" d="M30.75 30.1Q32 27.65 33.25 30.1C41.8 41.92 38.27 52 32 52C25.73 52 22.2 41.92 30.75 30.1Z" fill="#0A7AFF" fill-opacity=".82"/></g><g transform="rotate(-20 32 52)"><path class="petal petal-3" d="M30.75 21.1Q32 18.65 33.25 21.1C43.3 38.14 39.23 52 32 52C24.77 52 20.7 38.14 30.75 21.1Z" fill="#E0284F" fill-opacity=".82"/></g><g transform="rotate(20 32 52)"><path class="petal petal-4" d="M30.75 21.1Q32 18.65 33.25 21.1C43.3 38.14 39.23 52 32 52C24.77 52 20.7 38.14 30.75 21.1Z" fill="#D9472B" fill-opacity=".82"/></g><path class="petal petal-5" d="M30.75 12.1Q32 9.65 33.25 12.1C45.2 34.36 40.45 52 32 52C23.55 52 18.8 34.36 30.75 12.1Z" fill="url(#hm-foot)" fill-opacity=".82"/></g><path d="M11 57.5h42" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg> Hearth <small>hearthapps.com</small></div>
     <div class="foot-cols">
       <div><h2>Apps</h2><ul><li><a href="/bigtable">BigTable</a></li><li><a href="/suffice">Suffice</a></li><li><a href="/sated">Sated</a></li><li><a href="/caloma">Caloma</a></li><li><a href="/hearken">Hearken</a></li><li><a href="/trove">Trove</a></li><li><a href="/#ember">Ember</a></li></ul></div>
-      <div><h2>Help</h2><ul><li><a href="/support">Support</a></li><li><a href="/beta">Join a beta</a></li><li><a href="/support#faq">FAQ</a></li><li><a href="mailto:info@hearthapps.com">Contact</a></li></ul></div>
+      <div><h2>Help</h2><ul><li><a href="/support">Support</a></li><li><a href="/beta">Join a beta</a></li><li><a href="/support#faq">FAQ</a></li><li><a href="mailto:support@hearthapps.com">Contact</a></li></ul></div>
       <div><h2>Legal</h2><ul><li><a href="/privacy">Privacy Policy</a></li><li><a href="/terms">Terms of Use</a></li></ul></div>
       <div><h2>App sites</h2><ul><li><a href="https://bigtableapp.com">bigtableapp.com</a></li><li><a href="https://hearkenapp.com">hearkenapp.com</a></li></ul></div>
     </div>

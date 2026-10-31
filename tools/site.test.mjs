@@ -5,7 +5,7 @@ import test from 'node:test';
 import { runInNewContext } from 'node:vm';
 
 const source = await readFile(new URL('../assets/js/site.js', import.meta.url), 'utf8');
-const pages = ['index.html', '404.html', 'beta/index.html', 'privacy/index.html', 'support/index.html', 'terms/index.html', 'bigtable/index.html', 'suffice/index.html', 'sated/index.html', 'caloma/index.html', 'hearken/index.html', 'trove/index.html'];
+const pages = ['index.html', '404.html', 'beta/index.html', 'privacy/index.html', 'support/index.html', 'terms/index.html', 'bigtable/index.html', 'suffice/index.html', 'sated/index.html', 'caloma/index.html', 'hearken/index.html', 'trove/index.html', 'beta/suffice/index.html', 'beta/sated/index.html', 'beta/caloma/index.html', 'beta/hearken/index.html', 'beta/trove/index.html', 'beta/ember/index.html', 'beta/thanks/index.html', 'beta/confirmed/index.html'];
 
 function setup({ theme = 'light', saved = null, systemDark = false, reduce = false, storageBlocked = false, viewTransitions = false } = {}) {
   const root = new Map(theme ? [['data-theme', theme]] : []);
@@ -159,6 +159,6 @@ test('every non-brand SVG is an accessible static Lucide icon on every page', as
     assert.equal((html.match(/data-lucide="Menu"/g) || []).length, 1, page);
     assert.equal((html.match(/data-lucide="X"/g) || []).length, 1, page);
   }
-  assert.equal(count, 247);
+  assert.equal(count, 320);
   execFileSync(process.execPath, [new URL('./render-icons.mjs', import.meta.url).pathname, '--check']);
 });

@@ -1,6 +1,7 @@
 // Local preview server for hearthapps.com — no dependencies.
 // Serves this folder the way Vercel does (vercel.json "cleanUrls"):
 //   /privacy -> privacy/index.html, /about -> about.html, unknown paths -> 404.html.
+//   /go/* (short links, the TestFlight counter) is a rewrite to the API on Vercel; here it redirects there.
 //
 //   npm run dev              http://localhost:3000
 //   PORT=8080 npm run dev    another port
@@ -31,7 +32,11 @@ async function resolve(urlPath) {
 }
 
 createServer(async (req, res) => {
-  const { pathname } = new URL(req.url, 'http://localhost');
+  const { pathname, search } = new URL(req.url, 'http://localhost');
+  if (pathname.startsWith('/go/')) {
+    res.writeHead(302, { Location: `https://api.hearthapps.com${pathname}${search}` }); res.end();
+    console.log(`302 ${req.method} ${pathname} -> api.hearthapps.com`); return;
+  }
   // Clean URLs: /privacy/index.html or /privacy.html redirect to /privacy, as on Vercel.
   if (/\/index\.html$|\.html$/.test(pathname) && pathname !== '/404.html') {
     const target = pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '') || '/';

@@ -45,6 +45,38 @@ def get_button(a, cls='store', label=True):
         return f'<a class="{cls}" href="{a["store"]}" rel="noopener"><span><small>Download on the</small>App Store</span></a>'
     return f'<a class="{cls} beta" href="{a["beta"]}" rel="noopener"><img class="store-icon" src="/assets/img/testflight-app-icon.webp" width="32" height="32" alt="" decoding="async"><span><small>Join the beta on</small>TestFlight</span></a>'
 
+WAITLIST_URL = 'https://api.hearthapps.com/v1/waitlist'
+BETA_APPS = ['suffice', 'sated', 'caloma', 'hearken', 'trove', 'ember']
+
+def waitlist_form(page, apps, title, sub_html, note=None, fid='wl'):
+    """The "Get notified at launch" form. One app: a hidden apps field. Several: checkboxes.
+    Without JavaScript it posts to the API, which answers with a 303 to /beta/thanks;
+    assets/js/beta.js sends it with fetch and shows the result inline."""
+    note = note or 'We’ll email you once to confirm, and once when it launches. Nothing else.'
+    if len(apps) == 1:
+        pick = f'<input type="hidden" name="apps" value="{apps[0]}">'
+    else:
+        boxes = ''.join(f'<label class="wl-app"><input type="checkbox" name="apps" value="{k}">'
+                        f'<img class="ic-l" src="/assets/img/{k}.webp" width="28" height="28" alt="" loading="lazy">'
+                        f'<img class="ic-d" src="/assets/img/{k}-dark.webp" width="28" height="28" alt="" loading="lazy">'
+                        f'<span>{NAMES[k]}</span></label>' for k in apps)
+        pick = f'<fieldset class="wl-apps"><legend>Which apps?</legend><div class="wl-app-grid">{boxes}</div></fieldset>'
+    return f'''<div class="wl-card reveal">
+    <div class="wl-copy"><h2 id="{fid}-title">{e(title)}</h2><p class="wl-sub">{sub_html}</p></div>
+    <form class="wl" action="{WAITLIST_URL}" method="post" data-waitlist aria-labelledby="{fid}-title">
+      <div class="wl-fields">
+        {pick}
+        <label class="wl-label" for="{fid}-email">Email</label>
+        <div class="wl-inline"><input class="wl-input" id="{fid}-email" type="email" name="email" autocomplete="email" autocapitalize="off" spellcheck="false" required><button class="wl-btn" type="submit">Notify me</button></div>
+        <div class="wl-hp" aria-hidden="true"><label for="{fid}-company">Company</label><input id="{fid}-company" type="text" name="company" value="" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="via" value="">
+        <input type="hidden" name="page" value="{page}">
+        <p class="wl-note">{e(note)} <a href="/privacy#waitlist">Privacy</a></p>
+      </div>
+      <p class="wl-status" role="status" aria-live="polite" tabindex="-1"></p>
+    </form>
+  </div>'''
+
 def chrome():
     home = open(os.path.join(ROOT, 'index.html')).read()
     header = home[home.index('<header class="nav">'):home.index('</header>') + 9]
@@ -55,6 +87,7 @@ def chrome():
 
 def build(app, a, header, footer):
     n = a['name']; strong = STRONG[app]
+    beta_js = '\n<script src="/assets/js/beta.js" defer></script>' if app in BETA_APPS else ''
     head = f'''<!doctype html>
 <html lang="en">
 <head>
@@ -78,7 +111,7 @@ def build(app, a, header, footer):
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/assets/css/site.css">
-<script src="/assets/js/site.js" defer></script>
+<script src="/assets/js/site.js" defer></script>{beta_js}
 <script type="application/ld+json">{json.dumps({"@context": "https://schema.org", "@type": "SoftwareApplication", "name": n, "operatingSystem": "iOS 26, iPadOS 26", "applicationCategory": "LifestyleApplication", "description": a["description"], "url": f"https://hearthapps.com/{app}", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "publisher": {"@type": "Organization", "name": "Hearth Software LLC", "url": "https://hearthapps.com/"}}, ensure_ascii=False)}</script>
 </head>
 <body>
@@ -242,6 +275,15 @@ def build(app, a, header, footer):
     if a.get('disclaimer'):
         out.append(f'    <p class="disclaimer">{e(a["disclaimer"])}</p>\n')
     out.append('  </div>\n</section>\n')
+    if app in BETA_APPS:
+        sub = (f'Rather wait for the App Store? Leave your email and we’ll tell you when {e(n)} is out. '
+               f'Or <a href="/beta/{app}">see what’s new in the beta</a>.')
+        form = waitlist_form(f'/{app}', [app], f'Get notified when {n} launches.', sub)
+        out.append(f'''
+<section id="notify" class="wrap notify-sec" aria-labelledby="wl-title">
+  {form}
+</section>
+''')
     c1, c2 = a['close']
     more = ''.join(f'<a href="{page_url(o)}">{appicon(o, 64)}{NAMES[o]}</a>' for o in ORDER if o != app)
     out.append(f'''
