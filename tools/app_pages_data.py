@@ -221,7 +221,7 @@ APPS['hearken'] = dict(
 APPS['trove'] = dict(
     name='Trove', kind='Important documents & where they live', halo='#7FDDF5',
     title='Trove — Important documents, and where the originals are',
-    description='Trove keeps passports, licenses, birth certificates, insurance cards and warranties scanned, tied to the person or thing they belong to, and to the place the original is kept — encrypted in your own iCloud.',
+    description='Trove keeps passports, licenses, birth certificates, insurance cards and warranties scanned, tied to the person or thing they belong to, and to the place the original is kept — in your own iCloud.',
     h1='Every important paper. Found in seconds.',
     lede='Passports, licenses, birth certificates, insurance cards and warranties — scanned once, tied to the person or thing they belong to, and to the drawer or safe where the original is kept.',
     store=None, beta='https://testflight.apple.com/join/A1MhYETk',
@@ -251,10 +251,10 @@ APPS['trove'] = dict(
     together=[('One household', 'Invite your family once. The same people show up in Trove and every Hearth app.', 'Free', None),
               ('Shared with your household', 'The people you invite can find the documents you share.', 'Free', None)],
     plans=None,
-    privacy=('Encrypted in your own iCloud.', 'Your documents are encrypted in your own iCloud and shared only with your household. Scans are read on your iPhone.',
+    privacy=('Kept in your own iCloud.', 'Your documents’ details are end-to-end encrypted in your own iCloud and shared only with your household. Scans use iCloud’s standard encryption; turn on Advanced Data Protection to encrypt them end to end too.',
              [('LockKeyhole', 'No ads, no tracking, nothing sold.'), ('ScanFace', 'Locked with Face ID.'), ('Smartphone', 'Scans are read on the device.')]),
     faq=[('Which devices does Trove work on?', 'iPhone and iPad with iOS 26 or iPadOS 26, and iPhone Duo.'),
-         ('Who can see my documents?', 'You, and the people in your household you share them with. They’re encrypted in your own iCloud.'),
+         ('Who can see my documents?', 'You, and the people in your household you share them with. Their details are end-to-end encrypted in your own iCloud; scans use iCloud’s standard encryption, or end-to-end encryption with Advanced Data Protection on.'),
          ('Does Trove replace the originals?', 'No. It keeps a scan and tells you where the original is, so you can find it when you need it.')],
     close=('Every important paper.', 'Found in seconds.'),
 )
