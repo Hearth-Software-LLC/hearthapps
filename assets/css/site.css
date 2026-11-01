@@ -838,3 +838,196 @@ a.bt:hover { color: var(--ink); transform: translateY(-6px); box-shadow: 0 30px 
   .beta-help { margin: 48px auto 88px; }
   .beta-page .disclaimer { margin: -64px auto 88px; }
 }
+
+/* Home page (2026 redesign): better together, the command center, pricing, about, waitlist. */
+.hero-trust { margin-top: 22px; font-size: 14px; color: var(--muted); }
+.tile-start { background: var(--panel); box-shadow: none; justify-content: center; }
+.tile-start:hover { transform: none; box-shadow: none; }
+.tile-start h3 { margin-top: 0; font-size: 19px; }
+.tile-start .q { color: var(--link); text-decoration: none; }
+.dark .tg { background: #1C1C1E; box-shadow: none; }
+.dark .tg h3 { color: #F5F5F7; }
+.dark .tg p { color: #A1A1A6; }
+.dark .tg-icons { color: #8E8E93; }
+.dark .tg .plus-tag, .tg-household .plus-tag { background: #FFC94A; color: #1D1D1F; }
+.tg-household { margin-top: 16px; background: #1C1C1E; border-radius: 24px; padding: 22px 26px; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+.tg-household p { font-size: 17px; line-height: 1.5; color: #F5F5F7; max-width: 52em; }
+.tg-household p span { color: #A1A1A6; }
+.tg-household .plus-tag { background: transparent; color: #F5F5F7; border: 1px solid #636366; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
+.split { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; }
+.split > * { flex: 1 1 440px; min-width: 0; }
+.command { background: var(--bigtable-wash); }
+.cmd-icons { display: flex; gap: 10px; margin-bottom: 22px; }
+.cmd-icons img { width: 48px; height: 48px; border-radius: 12px; }
+.cmd-media { text-align: center; }
+.cmd-media img { width: 100%; max-width: 580px; height: auto; }
+.cmp { margin-top: 32px; background: var(--card); border-radius: 20px; overflow: hidden; box-shadow: 0 1px 2px rgba(0, 0, 0, .04); font-size: 15px; }
+.cmp-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.1fr); }
+.cmp-row + .cmp-row { border-top: 1px solid var(--rule-2); }
+.cmp-row > span { padding: 14px 18px; line-height: 1.4; color: var(--ink-2); }
+.cmp-row > span:first-child { color: var(--muted); }
+.cmp-row:first-child > span { font-weight: 700; color: var(--ink); }
+.cmp-row .cmp-us { color: var(--caloma-ink) !important; }
+.home-plans { --accent: var(--ink); --accent-ink: var(--ink); }
+.home-plans .plan { transition: translate .5s var(--ease), box-shadow .5s; }
+.home-plans .plan:hover { translate: 0 -6px; box-shadow: 0 30px 60px -28px rgba(0, 0, 0, .25); }
+.plan-value { margin-top: auto; padding-top: 20px; font-size: 13px; line-height: 1.45; font-weight: 600; color: var(--accent-ink); }
+.about { background: var(--panel); }
+.about .sub a { color: var(--link); }
+.promise { background: var(--card); border-radius: 28px; padding: 34px 32px; box-shadow: 0 1px 2px rgba(0, 0, 0, .04); display: flex; flex-direction: column; gap: 12px; }
+.promise h3 { font-size: 24px; letter-spacing: -.02em; line-height: 1.2; }
+.promise p { font-size: 17px; line-height: 1.55; color: var(--ink-2); }
+.home-notify { padding-bottom: 120px; }
+.home-notify-alt { text-align: center; margin-top: 26px; font-size: 16px; color: var(--muted); }
+@media (max-width: 860px) {
+  .split { gap: 40px; }
+  .cmp { font-size: 14px; }
+  .cmp-row > span { padding: 12px 12px; }
+}
+
+/* Home page, matched to the prototype, with the motion the old app sections had:
+   staggered scroll reveals, a floating render over a pulsing halo, a drifting note. */
+.nav-cta { display: inline-flex; align-items: center; min-height: 34px; padding: 0 15px; border-radius: 980px; background: var(--ink); color: var(--ground); font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: transform .35s var(--ease), box-shadow .35s; }
+.nav-cta:hover { color: var(--ground); transform: translateY(-1px); box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .35); }
+.btn-outline { color: var(--ink); background: var(--card); box-shadow: inset 0 0 0 1px var(--rule); font-weight: 600; }
+.btn-outline:hover { color: var(--ink); box-shadow: inset 0 0 0 1px var(--rule), 0 12px 30px -10px rgba(0, 0, 0, .2); }
+.btn-dark { font-weight: 600; }
+
+/* Hero: the words arrive in order, just ahead of the icons. */
+.hero .eyebrow, .hero .h1, .hero .lede, .hero .cta-row, .hero-trust { animation: rise-in 1.1s var(--ease) both; }
+.hero .eyebrow { animation-delay: .05s; }
+.hero .h1 { animation-delay: .12s; }
+.hero .lede { animation-delay: .22s; }
+.hero .cta-row { animation-delay: .32s; }
+.hero-trust { animation-delay: .4s; }
+
+/* Apps. Hover lifts use `translate`, so they still work while the scroll reveal owns `transform`. */
+.suite .tile { transition: translate .5s var(--ease), box-shadow .5s; }
+.suite .tile:hover { translate: 0 -8px; }
+.suite .tile img { width: 56px; height: 56px; border-radius: 13px; transition: transform .5s var(--ease); }
+.suite .tile:hover img { transform: scale(1.06) rotate(-3deg); }
+.tile-status { font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px; }
+
+/* Better together */
+.together-sec { background: #1D1D1F; }
+.home-together { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 44px; }
+.together-sec .tg { background: #2C2C2E; border-radius: 24px; padding: 28px; gap: 8px; transition: background .4s, translate .5s var(--ease); }
+.together-sec .tg:hover { background: #343437; translate: 0 -6px; }
+.together-sec .tg h3 { font-size: 22px; margin-top: 14px; }
+.together-sec .tg p { font-size: 16px; line-height: 1.5; }
+.together-sec .tg .plus-tag { margin-top: 12px; }
+.tg-icons img { transition: transform .5s var(--ease); }
+.tg:hover .tg-icons img { transform: translateY(-3px); }
+.tg:hover .tg-icons img:nth-of-type(n+3) { transition-delay: .08s; }
+.tg-icons svg { animation: nudge 2.6s var(--ease) infinite; }
+.together-sec .tg-household { background: #2C2C2E; }
+@keyframes nudge { 0%, 60%, 100% { transform: translateX(0); opacity: .7; } 30% { transform: translateX(4px); opacity: 1; } }
+
+/* Command center */
+.cmd-media.stage { padding: 0; }
+.cmd-media .halo { width: 460px; height: 460px; opacity: .42; }
+.cmd-float { position: relative; z-index: 1; width: 100%; animation: float 8s ease-in-out infinite; }
+.cmd-pop { left: -6px; bottom: 56px; width: 200px; text-align: left; }
+.cmd-pop > div + div { margin-top: 3px; }
+.cmd-stars { margin-top: 8px !important; font-weight: 700; color: var(--caloma-ink); }
+.cmd-icons img { transition: transform .5s var(--ease); }
+.cmd-icons img:hover { transform: translateY(-4px) rotate(-4deg); }
+@keyframes rise-sm { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.js-io .cmp-row.reveal:not(.in-view) { transform: translateY(14px); }
+.js-io .cmp-row.reveal { transition-duration: .7s; }
+
+/* Pricing: Hearth+ is the dark card, with a slow shimmer on its badge. */
+.plan.hi.plan-dark { background: #1D1D1F; color: #F5F5F7; box-shadow: 0 0 0 1px rgba(255, 201, 74, .45), 0 30px 60px -30px rgba(0, 0, 0, .45); }
+.plan.hi.plan-dark:hover { box-shadow: 0 0 0 1px rgba(255, 201, 74, .7), 0 36px 70px -28px rgba(0, 0, 0, .5); }
+.plan-dark h3, .plan-dark .price { color: #F5F5F7; }
+.plan-dark .per, .plan-dark .price small { color: #A1A1A6; }
+.plan-dark li { color: #D2D2D7; }
+.plan-dark li svg { color: #FFC94A; }
+.plan-dark .plan-value { color: #FFC94A; }
+.plan-chip { display: inline-block; vertical-align: 3px; margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #1D1D1F; padding: 4px 9px; border-radius: 980px; background: linear-gradient(90deg, #FFC94A, #FFE7A3, #FFC94A); background-size: 200% 100%; animation: shift 3.5s ease-in-out infinite alternate; }
+
+/* About */
+.promise { transition: translate .5s var(--ease), box-shadow .5s; }
+.promise:hover { translate: 0 -6px; box-shadow: 0 30px 60px -28px rgba(0, 0, 0, .22); }
+.promise > svg { color: var(--link); animation: bob 6s ease-in-out infinite; }
+
+/* Waitlist: centered, with the apps as pills you tap. */
+.home-notify .wl-card { display: block; max-width: 780px; margin: 0 auto; padding: 0; background: transparent; box-shadow: none; text-align: center; }
+.home-notify .wl-copy h2 { font-size: clamp(36px, 5vw, 56px); letter-spacing: -.04em; line-height: 1.05; }
+.home-notify .wl-sub { font-size: 19px; max-width: 34em; margin: 14px auto 0; }
+.home-notify .wl { margin-top: 30px; }
+.home-notify .wl-apps legend, .home-notify .wl-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.home-notify .wl-app-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.home-notify .wl-app { position: relative; min-height: 44px; padding: 0 18px 0 10px; gap: 8px; border-radius: 980px; background: var(--card); box-shadow: inset 0 0 0 1px var(--rule); transition: background .25s, color .25s, box-shadow .25s, transform .35s var(--ease); }
+.home-notify .wl-app:hover { transform: translateY(-2px); }
+.home-notify .wl-app:has(input:checked) { background: var(--ink); color: var(--ground); box-shadow: inset 0 0 0 1px var(--ink); }
+.home-notify .wl-app input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.home-notify .wl-app img { width: 24px; height: 24px; border-radius: 6px; transition: transform .35s var(--ease); }
+.home-notify .wl-app:has(input:checked) img { transform: scale(1.1) rotate(-6deg); }
+.home-notify .wl-apps { margin-bottom: 24px; }
+.home-notify .wl-inline { max-width: 520px; margin: 0 auto; justify-content: center; }
+.home-notify .wl-note { text-align: center; }
+
+/* Staggered reveals: cards in a row arrive one after another. */
+@supports (animation-timeline: view()) {
+  .suite .tile:nth-child(4n+2), .home-together .tg:nth-child(2n), .home-plans .plan:nth-child(2) { animation-range: entry 6% cover 31%; }
+  .suite .tile:nth-child(4n+3), .home-plans .plan:nth-child(3) { animation-range: entry 12% cover 37%; }
+  .suite .tile:nth-child(4n) { animation-range: entry 18% cover 43%; }
+  .cmp-row.reveal { animation-name: rise-sm; animation-range: entry 10% cover 30%; }
+}
+.js-io .suite .tile:nth-child(4n+2), .js-io .home-together .tg:nth-child(2n), .js-io .home-plans .plan:nth-child(2), .js-io .cmp-row.reveal:nth-child(2) { transition-delay: .08s; }
+.js-io .suite .tile:nth-child(4n+3), .js-io .home-plans .plan:nth-child(3), .js-io .cmp-row.reveal:nth-child(3) { transition-delay: .16s; }
+.js-io .suite .tile:nth-child(4n), .js-io .cmp-row.reveal:nth-child(4) { transition-delay: .24s; }
+
+@media (max-width: 860px) {
+  .home-together { grid-template-columns: minmax(0, 1fr); }
+  .cmd-media .halo { width: 320px; height: 320px; }
+}
+@media (max-width: 560px) {
+  .nav-cta { min-height: 32px; padding: 0 12px; }
+}
+
+/* App pages, matched to the prototype: the strongest link leads with a real screen,
+   the rest follow as cards, and Hearth+ is the dark plan. */
+.tg-lead { margin-top: 44px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: center; background: color-mix(in srgb, var(--accent) 9%, var(--ground)); border-radius: 32px; padding: 44px 48px; overflow: hidden; }
+.tg-lead .tg-icons { gap: 10px; }
+.tg-lead .tg-icons img { width: 44px; height: 44px; border-radius: 11px; }
+.tg-lead .tg-icons svg { color: var(--muted); }
+.tg-lead .plus-tag { margin-left: 8px; font-size: 11px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 5px 10px; border-radius: 999px; }
+.tg-lead h3 { font-size: clamp(28px, 3.2vw, 36px); line-height: 1.1; letter-spacing: -.03em; margin-top: 22px; }
+.tg-lead p { font-size: 18px; line-height: 1.55; color: var(--ink-2); margin-top: 12px; max-width: 30em; }
+.tg-lead-media { position: relative; display: flex; justify-content: center; }
+.tg-lead-media .halo { width: 340px; height: 340px; opacity: .35; }
+.tg-lead-shot { position: relative; z-index: 1; width: 100%; max-width: 290px; height: auto; animation: float 7s ease-in-out infinite; }
+.product .tg-rest { margin-top: 16px; }
+.product .tg-rest.tg-n2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.product .tg-rest.tg-n3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.product .tg-rest.tg-n4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.product .tg-rest.tg-n5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.product .tg { transition: translate .5s var(--ease), box-shadow .5s; }
+.product .tg:hover { translate: 0 -6px; box-shadow: 0 30px 60px -28px rgba(0, 0, 0, .22); }
+.product .tg .plus-tag { margin-top: 0; margin-bottom: 6px; }
+.plus-tag.tag-plus, .tg-lead .plus-tag { background: #FFC94A; color: #1D1D1F; }
+.plus-tag.tag-free { background: transparent; color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--rule); }
+.plans-head-c { flex-direction: column; align-items: center; text-align: center; }
+.plans-head-c .sub { margin: 12px auto 0; }
+.plans-head-c .billing { margin-top: 18px; }
+.plan-app { box-shadow: 0 0 0 2px var(--accent); }
+.plan-app h3 { color: var(--accent-ink); }
+.product .plans .plan { transition: translate .5s var(--ease), box-shadow .5s; }
+.product .plans .plan:hover { translate: 0 -6px; }
+@supports (animation-timeline: view()) {
+  .tg-rest .tg:nth-child(2), .product .plans .plan:nth-child(2) { animation-range: entry 6% cover 31%; }
+  .tg-rest .tg:nth-child(3), .product .plans .plan:nth-child(3) { animation-range: entry 12% cover 37%; }
+  .tg-rest .tg:nth-child(4) { animation-range: entry 18% cover 43%; }
+}
+.js-io .tg-rest .tg:nth-child(2), .js-io .product .plans .plan:nth-child(2) { transition-delay: .08s; }
+.js-io .tg-rest .tg:nth-child(3), .js-io .product .plans .plan:nth-child(3) { transition-delay: .16s; }
+.js-io .tg-rest .tg:nth-child(4) { transition-delay: .24s; }
+@media (max-width: 860px) {
+  .tg-lead { grid-template-columns: minmax(0, 1fr); padding: 32px 26px; gap: 28px; }
+  .product .tg-rest.tg-n3, .product .tg-rest.tg-n4, .product .tg-rest.tg-n5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .product .tg-rest[class*="tg-n"] { grid-template-columns: minmax(0, 1fr); }
+}

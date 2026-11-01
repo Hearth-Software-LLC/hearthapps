@@ -214,6 +214,21 @@ def refresh_beta_index():
     print('refreshed beta/index.html (waitlist form)')
 
 
+def refresh_home_index():
+    """The home page's waitlist form, between the same markers, so it never drifts from the betas'."""
+    path = os.path.join(ROOT, 'index.html')
+    s = open(path).read()
+    start, end = '<!-- waitlist-form -->', '<!-- /waitlist-form -->'
+    if start not in s:
+        sys.exit('index.html is missing the <!-- waitlist-form --> markers')
+    sub = 'Pick the apps you care about, and we’ll tell you when each one is on the App Store.'
+    form = B.waitlist_form('/', BETA_ORDER, 'Be first when they launch.', e(sub),
+                           note='We’ll email you once to confirm, and once when each app you chose launches. Nothing else.')
+    s = s[:s.index(start) + len(start)] + '\n  ' + form + '\n  ' + s[s.index(end):]
+    open(path, 'w').write(s)
+    print('refreshed index.html (waitlist form)')
+
+
 def write(rel, text):
     os.makedirs(os.path.dirname(os.path.join(ROOT, rel)), exist_ok=True)
     open(os.path.join(ROOT, rel), 'w').write(text)
@@ -228,3 +243,4 @@ if __name__ == '__main__':
     for kind in STATUS_PAGES:
         build_status(kind, header, footer)
     refresh_beta_index()
+    refresh_home_index()
