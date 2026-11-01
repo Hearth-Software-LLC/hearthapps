@@ -9,7 +9,7 @@ index.html, so edit those there first. Icons are written as empty
 """
 import html, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from app_pages_data import APPS, HEARTH_PLUS
+from app_pages_data import APPS, HEARTH_PLUS, HEARTH_PLUS_VALUE, TRIAL_NOTE
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 M = json.load(open(os.path.join(ROOT, 'assets/img/renders/renders.json')))
@@ -20,7 +20,7 @@ STRONG = {'bigtable': '#D9472B', 'suffice': '#167A52', 'sated': '#C2540A', 'calo
 e = html.escape
 
 def page_url(app):
-    return f'/{app}' if app in APPS else f'/#{app}'
+    return f'/{app}' if app in APPS else f'/beta/{app}'
 
 def img(key, cls, sizes, alt, eager=False):
     m = M[key]; app, name = key.split('/')
@@ -206,13 +206,25 @@ def build(app, a, header, footer):
     out.append(f'''
 <section id="together" class="sec" aria-labelledby="tg-title">
   <div class="wrap">
-    <h2 id="tg-title" class="h2 reveal">Better with <span class="soft">the rest of Hearth.</span></h2>
-    <p class="sub reveal">{e(n)} shares one household with every Hearth app, so the people in your life only have to be set up once.</p>
-    <div class="together">
+    <h2 id="tg-title" class="h2 reveal">Better with <span style="color:var(--accent-ink)">the rest of Hearth.</span></h2>
+    <p class="sub reveal">{e(n)} shares one household with every Hearth app, so the people in your life are set up once and the apps help each other.</p>
 ''')
-    for title, body, tag, partner in a['together']:
-        icons = appicon(app, 40) + (icon('Plus', 12) + appicon(partner, 40) if partner else '')
-        out.append(f'      <div class="tg reveal"><div class="tg-icons">{icons}</div><h3>{e(title)}</h3><p>{e(body)}</p><span class="plus-tag">{e(tag)}</span></div>\n')
+    items = list(a['together'])
+    lead = next((t for t in items if t[2] == 'Hearth+'), None) if a.get('together_shot') else None
+    if lead:
+        items.remove(lead)
+        title, body, tag, partner = lead
+        key, alt = a['together_shot']
+        icons = appicon(partner, 44, NAMES[partner]) + icon('ArrowLeftRight', 20) + appicon(app, 44, n)
+        out.append(f'''    <div class="tg-lead reveal-zoom">
+      <div class="tg-lead-copy"><div class="tg-icons">{icons}<span class="plus-tag">{e(tag)}</span></div><h3>{e(title)}.</h3><p>{e(body)}</p></div>
+      <div class="tg-lead-media"><div class="halo" style="background:var(--accent)"></div>{img(key, "tg-lead-shot", "(max-width: 860px) 60vw, 300px", alt)}</div>
+    </div>
+''')
+    out.append(f'    <div class="together tg-rest tg-n{len(items)}">\n')
+    for title, body, tag, partner in items:
+        free = ' tag-free' if tag == 'Free' else (' tag-plus' if tag == 'Hearth+' else '')
+        out.append(f'      <div class="tg reveal"><span class="plus-tag{free}">{e(tag)}</span><h3>{e(title)}</h3><p>{e(body)}</p></div>\n')
     out.append('    </div>\n  </div>\n</section>\n')
     hp = HEARTH_PLUS
     if has_plans:
@@ -221,20 +233,22 @@ def build(app, a, header, footer):
 <section id="plans" class="sec" style="padding-top:0" aria-labelledby="pl-title">
   <div class="wrap">
     <!-- DRAFT: confirm features and prices against MONETIZATION.md before launch. -->
-    <div class="plans-head">
-      <h2 id="pl-title" class="h2 reveal">Free to start. <span class="soft">Plus when you want more.</span></h2>
-      <div class="billing" role="group" aria-label="Billing period" data-billing hidden><button type="button" aria-pressed="true" data-period="monthly">Monthly</button><button type="button" aria-pressed="false" data-period="yearly">Yearly</button></div>
+    <div class="plans-head plans-head-c">
+      <h2 id="pl-title" class="h2 reveal">{e(a.get("plans_title", "Free to start. Plus when you want more."))}</h2>
+      <p class="sub reveal">Your own data is never behind a paywall. Plus adds the smart parts.</p>
+      <div class="billing" role="group" aria-label="Billing period" data-billing hidden><button type="button" aria-pressed="true" data-period="yearly">Yearly</button><button type="button" aria-pressed="false" data-period="monthly">Monthly</button></div>
     </div>
     <div class="plans">
       <div class="plan reveal"><h3>{e(n)}</h3><p class="price">Free</p><p class="per">Forever, for the whole household</p><ul>{ticks(p["free"])}</ul></div>
-      <div class="plan hi reveal"><span class="plan-badge">Most popular</span><h3>{e(n)} Plus</h3>
-        <p class="price"><span data-monthly>{p["plus_monthly"]} <small>/ month</small></span><span data-yearly hidden>{p["plus_yearly"]} <small>/ year</small></span></p>
-        <p class="per"><span data-monthly>or {p["plus_yearly"]} a year</span><span data-yearly hidden>Billed once a year</span></p><ul>{ticks(p["plus"])}</ul></div>
-      <div class="plan reveal"><h3>Hearth+</h3>
-        <p class="price"><span data-monthly>{hp["monthly"]} <small>/ month</small></span><span data-yearly hidden>{hp["yearly"]} <small>/ year</small></span></p>
-        <p class="per"><span data-monthly>or {hp["yearly"]} a year</span><span data-yearly hidden>Billed once a year</span></p><ul>{ticks(["Plus in every Hearth app", "The cross-app features above", f"Lifetime option, {hp['lifetime']} once"])}</ul></div>
+      <div class="plan plan-app reveal"><h3>{e(n)} Plus</h3>
+        <p class="price"><span data-yearly>{p["plus_yearly"]} <small>/ year</small></span><span data-monthly hidden>{p["plus_monthly"]} <small>/ month</small></span></p>
+        <p class="per"><span data-yearly>or {p["plus_monthly"]} a month</span><span data-monthly hidden>or {p["plus_yearly"]} a year</span>, for your whole household</p><ul>{ticks(p["plus"])}</ul></div>
+      <div class="plan hi plan-dark reveal"><h3>Hearth+ <span class="plan-chip">Every app</span></h3>
+        <p class="price"><span data-yearly>{hp["yearly"]} <small>/ year</small></span><span data-monthly hidden>{hp["monthly"]} <small>/ month</small></span></p>
+        <p class="per"><span data-yearly>or {hp["monthly"]} a month</span><span data-monthly hidden>or {hp["yearly"]} a year</span>, for your whole household</p><ul>{ticks([f"Everything in {n} Plus", "Plus in every Hearth app", "The cross-app features above", f"Lifetime: {hp['founding']} founding price at launch, then {hp['lifetime']}"])}</ul>
+        <p class="plan-value">{e(HEARTH_PLUS_VALUE)}</p></div>
     </div>
-    <p class="plans-note">Your own data is never behind a paywall. Subscriptions renew until canceled in Settings.</p>
+    <p class="plans-note">{e(TRIAL_NOTE)} Subscriptions renew until canceled in Settings.</p>
   </div>
 </section>
 ''')
@@ -247,7 +261,7 @@ def build(app, a, header, footer):
       <div><h2 id="pl-title">{e(n)} Plus, or Hearth+ for every app.</h2>
         <p>{e(n)} Plus adds more to {e(n)} on its own. Hearth+ unlocks Plus in every Hearth app, plus the features that connect them, for your whole household.</p>
         <p class="fine">Your own data is never behind a paywall.</p></div>
-      <div class="hplus-price"><p class="price">{hp["monthly"]} <small>/ month</small></p><p class="per">Hearth+ · or {hp["yearly"]} a year, or {hp["lifetime"]} once</p></div>
+      <div class="hplus-price"><p class="price">{hp["monthly"]} <small>/ month</small></p><p class="per">Hearth+ · or {hp["yearly"]} a year, for your whole household</p></div>
     </div>
   </div>
 </section>
